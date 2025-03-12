@@ -16,7 +16,7 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
   formData.append('valor_nota', valor_nota);
   formData.append('nota_fiscal', nota_fiscal);
 
-  fetch('https://seu-backend.onrender.com/enviar-nota', {
+  fetch('https://backend-envio-notas.onrender.com', {
     method: 'POST',
     body: formData,
   })
