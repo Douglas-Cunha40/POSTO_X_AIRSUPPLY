@@ -16,22 +16,22 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
   formData.append('valor_nota', valor_nota);
   formData.append('nota_fiscal', nota_fiscal);
 
-  fetch('https://backend-envio-notas.onrender.com', {
+  fetch('https://backend-envio-notas.onrender.com/enviar-nota', {
     method: 'POST',
     body: formData,
   })
-  .then(response => response.json())  // Espera uma resposta JSON
+  .then(response => response.json())
   .then(data => {
-    console.log('Resposta do servidor:', data);  // Log da resposta
+    console.log('Resposta do servidor:', data);
     if (data.message) {
-      alert(data.message);  // Exibe a mensagem do servidor (sucesso ou erro)
+      alert(data.message);  // Mostra mensagem do backend
     } else {
       alert('Resposta inesperada do servidor');
     }
   })
   .catch(error => {
-    console.error('Erro no envio do formulário:', error); // Log mais detalhado do erro
-    alert('E-mail enviado com sucesso');
+    console.error('Erro no envio do formulário:', error);
+    alert('Ocorreu um erro. Tente novamente!');
   });
 });
 
