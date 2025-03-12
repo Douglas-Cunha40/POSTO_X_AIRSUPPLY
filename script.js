@@ -21,24 +21,26 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
     body: formData,
   })
   .then(response => {
-    // Verifica se o status HTTP é OK (200)
+    // Verificar se a resposta foi bem-sucedida
     if (!response.ok) {
-      throw new Error('Erro no envio do formulário');
+      throw new Error('Erro ao enviar o formulário');
     }
-    return response.json();
+    return response.json(); // Retorna a resposta em formato JSON
   })
   .then(data => {
     console.log('Resposta do servidor:', data);
-    if (data.message) {
-      alert(data.message);  // Mostra mensagem do backend
-      document.getElementById('abastecimentoForm').reset(); // Limpa o formulário após o envio bem-sucedido
+
+    // Verificar se a resposta contém sucesso
+    if (data.success) {
+      alert(data.message);  // Exibe a mensagem de sucesso
+      document.getElementById('abastecimentoForm').reset(); // Limpa o formulário
     } else {
-      alert('Resposta inesperada do servidor');
+      alert('Ocorreu um erro, tente novamente!');
     }
   })
   .catch(error => {
     console.error('Erro no envio do formulário:', error);
-    alert('NOTA ENVIADA COM SECESSO!');
+    alert('Ocorreu um erro. Tente novamente!');
   });
 });
 
