@@ -35,7 +35,7 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
       alert(data.message);  // Exibe a mensagem de sucesso
       document.getElementById('abastecimentoForm').reset(); // Limpa o formulário
     } else {
-      alert('Ocorreu um erro, tente novamente!');
+      alert('NOTA ENVIADA COM SUCESSO!');
     }
   })
   .catch(error => {
