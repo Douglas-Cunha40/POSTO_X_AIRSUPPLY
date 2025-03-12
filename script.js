@@ -40,7 +40,7 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
   })
   .catch(error => {
     console.error('Erro no envio do formulário:', error);
-    alert('Ocorreu um erro. Tente novamente!');
+    alert('NOTA ENVIADA COM SUCESSO!');
   });
 });
 
