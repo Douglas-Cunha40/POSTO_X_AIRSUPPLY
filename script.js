@@ -20,11 +20,18 @@ document.getElementById('abastecimentoForm').addEventListener('submit', function
     method: 'POST',
     body: formData,
   })
-  .then(response => response.json())
+  .then(response => {
+    // Verifica se o status HTTP é OK (200)
+    if (!response.ok) {
+      throw new Error('Erro no envio do formulário');
+    }
+    return response.json();
+  })
   .then(data => {
     console.log('Resposta do servidor:', data);
     if (data.message) {
       alert(data.message);  // Mostra mensagem do backend
+      document.getElementById('abastecimentoForm').reset(); // Limpa o formulário após o envio bem-sucedido
     } else {
       alert('Resposta inesperada do servidor');
     }
